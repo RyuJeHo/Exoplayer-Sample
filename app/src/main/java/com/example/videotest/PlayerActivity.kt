@@ -40,4 +40,13 @@ class PlayerActivity : AppCompatActivity() {
         myPlayer!!.pause()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if (myPlayer != null) {
+            playerView.player = null
+            myPlayer!!.release()
+            myPlayer = null
+        }
+    }
+
 }
